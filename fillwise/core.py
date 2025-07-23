@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 from typing import List, Literal, Tuple, Union
-from PIL import Image
 from ._utils import (
     normalize_proportions,
     load_mask_image,
@@ -18,6 +17,23 @@ from ._styles import (
 
 
 class Fillwise:
+    """
+    Fillwise is a data visualization module that fills images with color proportions
+    based on group data. It supports vertical, horizontal, and radial fill styles.
+
+    Parameters:
+        data (Union[pd.DataFrame, List[Tuple[str, Union[int, float]]]]):
+            Input group data. Can be a DataFrame with two columns or a list of (label, count) tuples.
+        colors (List[str], optional):
+            List of hex or named colors corresponding to each group. If None, default colors are assigned.
+        mask_path (str, optional):
+            Path to the image mask file. The mask defines the shape to be filled.
+        fill_style (Literal["vertical", "horizontal", "radial"], optional):
+            Fill direction or pattern. Options are "vertical", "horizontal", or "radial".
+        threshold (int, optional):
+            Alpha threshold (0–255) to determine which pixels in the mask are visible and fillable.
+    """
+
     def __init__(
         self,
         data: Union[pd.DataFrame, List[Tuple[str, Union[int, float]]]],
@@ -53,6 +69,12 @@ class Fillwise:
             self.fill_style, shape, self.percentages)
 
     def render(self) -> np.ndarray:
+        """
+        Renders the filled image as a NumPy array with RGBA channels.
+
+        Returns:
+            np.ndarray: An array of shape (H, W, 4) representing the filled image.
+        """
         shape = self.mask_array.shape[:2]
 
         if self.fill_style == "vertical":
@@ -72,9 +94,10 @@ class Fillwise:
     def save(self, path: str = "output.png", format: str = "PNG") -> None:
         """
         Saves the rendered image to disk.
+
         Parameters:
-            path: File path to save the image (e.g., 'output.png').
-            format: Image format (e.g., 'PNG', 'JPEG'). Defaults to 'PNG'.
+            path (str): File path to save the image (e.g., 'output.png').
+            format (str): Image format (e.g., 'PNG', 'JPEG'). Defaults to 'PNG'.
         """
         image = array_to_image(self.render())
         image.save(path, format=format)
