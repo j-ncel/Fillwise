@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fillwise"
+version = "1.0.0"
+description = "A modular and expressive data visualization tool using masked fill styles."
+readme = "README.md"
+authors = [{ name = "Juncel"}]
+license = { file = "LICENSE" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License"
+]
+
+keywords = [
+    "image manipulation",
+    "data visualization",
+    "group comparison",
+    "visual encoding",
+    "charting library",
+    "visual storytelling",
+    "custom chart",
+    "mask fill",
+    "data art",
+    "python",
+]
+
+dependencies = [
+    "numpy",
+    "pandas",
+    "Pillow"
+]
+
+[project.urls]
+Homepage = "https://github.com/j-ncel/Fillwise"
+Repository = "https://github.com/j-ncel/Fillwise"
+
+[tool.setuptools]
+packages = { find = { include = ["fillwise"], exclude = ["tests", "playground"] } }
