@@ -14,12 +14,12 @@ def sample_df():
 
 @pytest.fixture
 def mask_path():
-    return "tests/mango.png"
+    return "tests/icon.png"
 
 
 def test_fillwise_initialization(sample_df, mask_path):
     viz = Fillwise(sample_df, mask_path=mask_path, fill_style="radial")
-    assert viz.labels == ["Apple", "Banana", "Mango"]
+    assert viz.labels == ["A", "B", "C"]
     assert len(viz.percentages) == 3
     assert np.isclose(sum(viz.percentages), 1.0)
 
@@ -61,7 +61,7 @@ def test_show_method(monkeypatch, sample_df, mask_path):
     class DummyImage:
         def show(self): return True
 
-    monkeypatch.setattr("fillwise.utils.array_to_rgba_image",
+    monkeypatch.setattr("fillwise._utils.array_to_image",
                         lambda x: DummyImage())
     assert viz.show() is None  # Should not raise
 

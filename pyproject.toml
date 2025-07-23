@@ -39,4 +39,4 @@ Homepage = "https://github.com/j-ncel/Fillwise"
 Repository = "https://github.com/j-ncel/Fillwise"
 
 [tool.setuptools]
-packages = { find = { include = ["fillwise"], exclude = ["tests", "playground"] } }
+packages = { find = { include = ["fillwise"], exclude = ["tests", "playground", "assets"] } }

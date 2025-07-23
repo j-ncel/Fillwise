@@ -81,4 +81,4 @@ def array_to_image(image_array: np.ndarray) -> Image.Image:
         image_array = (image_array * 255).astype(
             np.uint8) if image_array.max() <= 1 else image_array.astype(np.uint8)
 
-    return Image.fromarray(image_array, mode="RGBA")
+    return Image.fromarray(image_array)
