@@ -1,3 +1,8 @@
+![Test Fillwise on macOS, Linux, and Windows](https://github.com/j-ncel/Fillwise/actions/workflows/test.yml/badge.svg)
+![PyPI](https://img.shields.io/pypi/v/Fillwise)
+![Python](https://img.shields.io/pypi/pyversions/Fillwise)
+![License](https://img.shields.io/github/license/j-ncel/Fillwise)
+
 # Fillwise <img src="https://raw.githubusercontent.com/j-ncel/Fillwise/refs/heads/main/assets/icon.png" width="50" alt="Fillwise Icon">
 
 **Visualize group data by filling images with color proportions.**
