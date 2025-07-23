@@ -11,6 +11,10 @@ Fillwise is a Python module for visualizing group data by filling images with co
 
 ---
 
+<a href="https://coff.ee/jncel">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="140" height="" alt="Buy Me a Coffee">
+</a>
+
 ## Usage
 
 ```bash
