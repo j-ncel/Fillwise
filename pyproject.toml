@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "fillwise"
 version = "1.0.0"
-description = "A modular and expressive data visualization tool using masked fill styles."
+description = "Visualize group data by filling images with color proportions."
 readme = "README.md"
 authors = [{ name = "Juncel"}]
 license = { file = "LICENSE" }
