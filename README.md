@@ -1,4 +1,4 @@
-# Fillwise <img src="assets/icon.png" width="50" alt="Fillwise Icon">
+# Fillwise <img src="https://raw.githubusercontent.com/j-ncel/Fillwise/refs/heads/main/assets/icon.png" width="50" alt="Fillwise Icon">
 
 **Visualize group data by filling images with color proportions.**
 
@@ -32,9 +32,9 @@ fw.save("output.png")
 fw.show()
 ```
 
-| Before                                                                  | After                                                                         |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| <img src="playground/samples/images/cart.png" width="250" alt="Before"> | <img src="playground/samples/images/cart_output.png" width="250" alt="After"> |
+| Before                                                                                                                                    | After                                                                                                                                           |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://raw.githubusercontent.com/j-ncel/Fillwise/refs/heads/main/playground/samples/images/cart.png" width="250" alt="Before"> | <img src="https://raw.githubusercontent.com/j-ncel/Fillwise/refs/heads/main/playground/samples/images/cart_output.png" width="250" alt="After"> |
 
 _Sample image credit from [UXWing](https://uxwing.com/cart-black-icon/)_.
 _The data presented here are made-up only._
@@ -62,7 +62,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-<img src="playground/samples/images/gamepad_output.png" width="500" alt="Matplotlib Sample">
+<img src="https://raw.githubusercontent.com/j-ncel/Fillwise/refs/heads/main/playground/samples/images/gamepad_output.png" width="500" alt="Matplotlib Sample">
 
 _Sample image credit from [UXWing](https://uxwing.com/gamepad-icon/)_.
 _The data presented here are made-up only._
