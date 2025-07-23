@@ -18,7 +18,7 @@ def mask_path():
 
 
 def test_fillwise_initialization(sample_df, mask_path):
-    viz = Fillwise(sample_df, mask_path=mask_path, fill_style="radial")
+    viz = Fillwise(sample_df, image_path=mask_path, fill_style="radial")
     assert viz.labels == ["A", "B", "C"]
     assert len(viz.percentages) == 3
     assert np.isclose(sum(viz.percentages), 1.0)
@@ -26,21 +26,21 @@ def test_fillwise_initialization(sample_df, mask_path):
 
 def test_invalid_fill_style(sample_df, mask_path):
     with pytest.raises(ValueError, match="Unsupported fill style"):
-        Fillwise(sample_df, mask_path=mask_path, fill_style="diagonal")
+        Fillwise(sample_df, image_path=mask_path, fill_style="diagonal")
 
 
 def test_missing_mask_path(sample_df):
     with pytest.raises(ValueError, match="mask_path must be provided"):
-        Fillwise(sample_df, mask_path=None)
+        Fillwise(sample_df, image_path=None)
 
 
 def test_color_validation(sample_df, mask_path):
     with pytest.raises(ValueError, match="Not enough colors provided"):
-        Fillwise(sample_df, mask_path=mask_path, colors=["#FF0000"])
+        Fillwise(sample_df, image_path=mask_path, colors=["#FF0000"])
 
 
 def test_render_output_shape(sample_df, mask_path):
-    viz = Fillwise(sample_df, mask_path=mask_path, fill_style="horizontal")
+    viz = Fillwise(sample_df, image_path=mask_path, fill_style="horizontal")
     image = viz.render()
     assert isinstance(image, np.ndarray)
     assert image.shape[2] == 4  # RGBA
@@ -48,14 +48,14 @@ def test_render_output_shape(sample_df, mask_path):
 
 def test_save_output(tmp_path, sample_df, mask_path):
     output_path = tmp_path / "output.png"
-    viz = Fillwise(sample_df, mask_path=mask_path, fill_style="vertical")
+    viz = Fillwise(sample_df, image_path=mask_path, fill_style="vertical")
     viz.save(path=str(output_path))
     assert output_path.exists()
     assert output_path.stat().st_size > 0
 
 
 def test_show_method(monkeypatch, sample_df, mask_path):
-    viz = Fillwise(sample_df, mask_path=mask_path, fill_style="radial")
+    viz = Fillwise(sample_df, image_path=mask_path, fill_style="radial")
 
     # Mock PIL.Image.show
     class DummyImage:
@@ -72,4 +72,4 @@ def test_zero_counts(mask_path):
         "Count": [0, 0, 0]
     })
     with pytest.raises(ZeroDivisionError):
-        Fillwise(df, mask_path=mask_path)
+        Fillwise(df, image_path=mask_path)

@@ -38,17 +38,17 @@ class Fillwise:
         self,
         data: Union[pd.DataFrame, List[Tuple[str, Union[int, float]]]],
         colors: List[str] = None,
-        mask_path: str = None,
-        fill_style: Literal["vertical", "horizontal", "radial"] = "vertical",
+        image_path: str = None,
+        fill_style: Literal["vertical", "horizontal", "radial"] = "horizontal",
         threshold: int = 10
     ):
-        self.mask_path = mask_path
+        self.mask_path = image_path
         self.threshold = threshold
         self.fill_style = fill_style.lower()
 
         if self.fill_style not in ["vertical", "horizontal", "radial"]:
             raise ValueError(f"Unsupported fill style: {self.fill_style}")
-        if mask_path is None:
+        if image_path is None:
             raise ValueError("mask_path must be provided")
 
         # Extract labels and counts
