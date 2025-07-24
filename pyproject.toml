@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fillwise"
-version = "1.0.0"
+version = "1.0.1"
 description = "Visualize group data by filling images with color proportions."
 readme = "README.md"
 authors = [{ name = "Juncel"}]
